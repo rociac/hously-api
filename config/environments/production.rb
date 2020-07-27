@@ -19,7 +19,7 @@ Rails.application.configure do
 
   config.active_support.deprecation = :notify
 
-  config.secret_key_base = '<%= ENV["SECRET_KEY_BASE"] %>'
+  config.secret_key_base = 'blipblapblup'
 
   config.log_formatter = ::Logger::Formatter.new
 
