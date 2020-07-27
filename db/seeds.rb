@@ -1,1 +1,2 @@
-User.create!(name: "Rodolfo Cisneros", email: "brsrkdev@gmail.com", password: "foobar", password_confirmation: "foobar")
+# User.create!(name: "Rodolfo Cisneros", email: "brsrkdev@gmail.com", password: "foobar", password_confirmation: "foobar")
+House.create!(name: "Test apartment", description: "Test description", price: 999.99, user_id: 1)
