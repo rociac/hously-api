@@ -1,17 +1,18 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
+  before_action :authenticate_user, only: [:index, :current, :update]
 
   def index
     @users = User.all
     render json: @users
   end
 
-  def show
-    render json: @user
+  def current
+    render json: current_user
   end
 
-  def find
-    @user = User.find_by(email: params[:email])
+  def show
+    render json: @user
   end
 
   def create
