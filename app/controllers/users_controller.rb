@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+  def find
+    @user = User.find_by(email: params[:email])
+  end
+
   def create
     @user = User.new(user_params)
 
