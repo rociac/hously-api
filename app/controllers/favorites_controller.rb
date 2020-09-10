@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  before_action :authenticate_user, only: [:create]
   before_action :set_house, only: [:create, :destroy]
   before_action :already_favorite?, only: :create
 
