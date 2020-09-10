@@ -14,6 +14,11 @@ class FavoritesController < ApplicationController
     end
     json_response(@favorites)
   end
+
+  def favorited
+    favorited = Favorite.where(user_id: current_user.id, house_id: params[:house_id]).exists?
+    json_response(favorited)
+  end
   
   def create
     @favorite = current_user.favorites.build(user_id: current_user.id, house_id: @house.id)
