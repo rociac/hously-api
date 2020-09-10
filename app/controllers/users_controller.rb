@@ -4,15 +4,20 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    render json: @users
+    protected_users = []
+    @users.each do |user|
+      temp_user = { id: user.id, name: user.name, email: user.email, avatar: user.avatar }
+      protected_users.push(temp_user)
+    end
+    render json: protected_users
   end
 
   def current
-    render json: current_user
+    render json: { id: current_user.id, name: current_user.name, email: current_user.email, avatar: current_user.avatar }
   end
 
   def show
-    render json: @user
+    render json: { id: @user.id, name: @user.name, email: @user.email, avatar: @user.avatar}
   end
 
   def create
